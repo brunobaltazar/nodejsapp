@@ -1,4 +1,4 @@
-# CI / CD com Jenkins e AKS
+# CI / CD com Jenkins e AKS (Em construção Documentaçã)
 
 Motivação
 As aplicações modernas requerem o desenvolvimento de código em diferentes plataformas e ferramentas, potencializando a necessidade de um mecanismo para integrar e validar suas mudanças. A Integração Contínua (CI) e a Entrega Contínua (CD) incorporam uma cultura, um conjunto de princípios operacionais e uma coleção de práticas que permitem que as equipes de desenvolvimento de aplicativos forneçam alterações de código com mais frequência e confiabilidade.
@@ -23,5 +23,10 @@ A imagem acima é uma visão geral da arquitetura genérica que pode ser impleme
 - **Azure Container Registry** Um registro de imagens Docker e Open Container Initiative (OCI), com suporte para todos os artefatos OCI
 
 
+- **Jenkins** Build com parâmetros de escolhas 
+![Run jenkins job](/images/jenkins_escolhas.png)
+
+- **Jenkins** Build run job
+![Pipeline Jenkins](/images/pipiline_run.png)
 
 
