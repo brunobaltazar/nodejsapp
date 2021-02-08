@@ -9,17 +9,14 @@ stage('Project information!') {
             sh 'echo ${USER}'
             sh 'node -v'
             sh 'npm -v'
-
         }
-  }
+   }
+  
 
 stage('Git Clone') {
             steps  {
                  sh 'rm -rf ${APP_NAME_GIT} && git clone -b ${BRANCH_TAG} https://github.com/brunobaltazar/${APP_NAME_GIT}.git'
-                 sh 'cd ${APP_NAME_GIT} && ls -l'
                  echo 'Projetos clonados'
-                 sh 'docker -v'
-                 
                  }  
             } 
             
@@ -43,19 +40,18 @@ stage('Docker build e push registry') {
                  sh 'docker push  tecnobooks.azurecr.io/${APP_NAME_GIT}:${BRANCH_TAG}'
             }
          }
- 
 
        
-  stage('Deploy Aks Azure') {
+stage('Deploy Aks Azure') {
             steps  {
-		    sh 'cd ${APP_NAME_GIT} && ls -l'
-		    sh 'sed -i -e "s/APP_NAME/${APP_NAME_GIT}/g" k8s-deployment.yaml'
-		    sh 'sed -i -e "s/APP_NAME_GIT/${APP_NAME_GIT}:${BRANCH_TAG}/g" k8s-deployment.yaml'
-		    sh 'kubectl delete  ${APP_NAME_GIT}'
-		    sh 'kubectl create -f  k8s-deployment.yaml'
+		    sh 'cd ${APP_NAME_GIT}'
+		    sh 'ls -l && pwd'
+		    sh 'sed -i -e "s/TOKEN/${APP_NAME_GIT}/g" ${APP_NAME_GIT}/k8s-deployment.yaml'
+		    sh 'sed -i -e "s/APP_NAME_GIT/${APP_NAME_GIT}:${BRANCH_TAG}/g" ${APP_NAME_GIT}/k8s-deployment.yaml'
+		    sh 'cat ${APP_NAME_GIT}/k8s-deployment.yaml'
+		    sh 'kubectl delete pods ${APP_NAME_GIT} || echo "não a pods da aplicação ${APP_NAME_GIT} para remover" '
+		    sh 'kubectl create -f  ${APP_NAME_GIT}/k8s-deployment.yaml'
             }
          }   
-
- 
    }
 }
