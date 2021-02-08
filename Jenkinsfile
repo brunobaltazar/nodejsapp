@@ -39,8 +39,8 @@ stage('Docker build e push registry') {
                  sh 'cd ${APP_NAME_GIT} && docker build --tag ${APP_NAME_GIT}:${BRANCH_TAG} .;'
                  sh 'docker tag ${APP_NAME_GIT}:${BRANCH_TAG} tecnobooks.azurecr.io/${APP_NAME_GIT}:${BRANCH_TAG};'
                  sh 'docker images'
-            //   sh 'docker login -u $ACR_USER -p $ACR_PASSWORD https://$ACR_SERVER'
-            //   sh 'docker push  tecnobooks.azurecr.io/${APP_NAME_GIT}:${BRANCH_TAG}'
+                 sh 'docker login -u $ACR_USER -p $ACR_PASSWORD https://$ACR_SERVER'
+                 sh 'docker push  tecnobooks.azurecr.io/${APP_NAME_GIT}:${BRANCH_TAG}'
             }
          }
  
@@ -48,18 +48,11 @@ stage('Docker build e push registry') {
        
   stage('Deploy Aks Azure') {
             steps  {
-                 sh 'az aks get-credentials --help'
-                //sh 'az aks get-credentials --resource-group aks --name Cluster'
-                //sh 'cd ${APP_NAME_GIT} && ls -l && pwd'
-                // script {
-                // cd '${APP_NAME_GIT} && ls -l && pwd',
-                // kubernetesDeploy (
-                // configs: 'k8s-deployment.yaml',
-                // kubeconfigId: 'kubeazure',
-                //enableConfigSubstitution: true
-                //)           
-               // }
-       
+		    sh 'cd ${APP_NAME_GIT} && ls -l'
+		    sh 'sed -i -e "s/APP_NAME/${APP_NAME_GIT}/g" k8s-deployment.yaml'
+		    sh 'sed -i -e "s/APP_NAME_GIT/${APP_NAME_GIT}:${BRANCH_TAG}/g" k8s-deployment.yaml'
+		    sh 'kubectl delete  ${APP_NAME_GIT}'
+		    sh 'kubectl create -f  k8s-deployment.yaml'
             }
          }   
 

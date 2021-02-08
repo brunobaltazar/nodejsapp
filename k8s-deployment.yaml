@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nodeapp
+  name: APP_NAME
   labels:
-    app: nodeapp
+    app: APP_NAME
 spec:
   containers:
-    - name: nodeapp
-      image: tecnobooks.azurecr.io/nodejsapp:2.0.0
+    - name: APP_NAME
+      image: tecnobooks.azurecr.io/APP_NAME_GIT
       ports:
         - containerPort: 8080
