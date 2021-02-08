@@ -7,6 +7,6 @@ metadata:
 spec:
   containers:
     - name: nodeapp
-      image: tecnobooks.azurecr.io/nodejsapp:v1
+      image: tecnobooks.azurecr.io/nodejsapp:2.0.0
       ports:
         - containerPort: 8080
