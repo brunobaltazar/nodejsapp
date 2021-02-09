@@ -1,7 +1,6 @@
 # CI / CD com Jenkins e AKS (Em construção Documentação)
 
-Motivação
-As aplicações modernas requerem o desenvolvimento de código em diferentes plataformas e ferramentas, potencializando a necessidade de um mecanismo para integrar e validar suas mudanças. A Integração Contínua (CI) e a Entrega Contínua (CD) incorporam uma cultura, um conjunto de princípios operacionais e uma coleção de práticas que permitem que as equipes de desenvolvimento de aplicativos forneçam alterações de código com mais frequência e confiabilidade.
+Motivação :As aplicações modernas requerem o desenvolvimento de código em diferentes plataformas e ferramentas, potencializando a necessidade de um mecanismo para integrar e validar suas mudanças. A Integração Contínua (CI) e a Entrega Contínua (CD) incorporam uma cultura, um conjunto de princípios operacionais e uma coleção de práticas que permitem que as equipes de desenvolvimento de aplicativos forneçam alterações de código com mais frequência e confiabilidade.
 
 O objetivo da CI é estabelecer uma maneira consistente e automatizada de construir, empacotar e testar aplicativos. Com a consistência no processo de integração em vigor, as equipes são mais propensas a comprometer alterações de código com mais frequência, o que leva a uma melhor colaboração e qualidade de software. A maioria das equipes trabalha com vários ambientes diferentes de produção, como ambientes de desenvolvimento e teste, e o CD garante que haja uma maneira automatizada de enviar alterações de código a eles.
 
