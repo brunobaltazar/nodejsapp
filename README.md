@@ -14,7 +14,7 @@ A imagem acima é uma visão geral da arquitetura genérica que pode ser impleme
 
 - **GitHub** como o repositório git;
 - **Jenkins** como o servidor orquestrador de automação de CI / CD;
-- **Azure** Container Registry como o repositório de contêiner;
+- **Azure Container Registry** como o repositório de contêiner;
 - **Azure Kubernetes Service (AKS)** como orquestrador de contêiner.
 - **Docker** Contêiner run time
 - **Kubectl** Ferramenta de linha de comando kubectl permite controlar os clusters do Kubernetes
